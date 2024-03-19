@@ -1,0 +1,13 @@
+module api {
+    typedef sequence<octet> byteArray;
+    interface DataNode {
+        byteArray read(in long block_id);
+        void append(in long block_id, in byteArray bytes);
+        long randomBlockId();
+    };
+    interface NameNode{
+    string open(in string filepath,in long mode);
+    void close(in string fileInfo);
+    string getLocations(in long long id,in long size);
+    };
+};
